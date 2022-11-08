@@ -1,0 +1,47 @@
+// Java program to illustrate creation of Object
+// using newInstance() method of Constructor class
+
+// Importing required classes from java.lang package
+import java.lang.reflect.*;
+
+// Main class
+class GFG {
+
+	// Member variables of this class
+	private String name;
+
+	// Constructor of this class
+	GFG() {}
+
+	// Method 1
+	// To set name ofthe string
+	public void setName(String name)
+	{
+		// This method refers to current object itself
+		this.name = name;
+	}
+
+	// Main driver method
+	public static void main(String[] args)
+	{
+		// Try block to check for exceptions
+		try {
+			Constructor<GFG> constructor
+				= GFG.class.getDeclaredConstructor();
+
+			GFG r = constructor.newInstance();
+
+			// Custom passing
+			r.setName("GeeksForGeeks");
+			System.out.println(r.name);
+		}
+
+		// Catch block to handle the exceptions
+		catch (Exception e) {
+
+			// Display the exception on console
+			// using printStackTrace() method
+			e.printStackTrace();
+		}
+	}
+}
